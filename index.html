@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota & Kuiz Adab dan Akhlak UPKK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active-blue {
+            background-color: #3b82f6; /* bg-blue-500 */
+            color: white;
+            border-color: #3b82f6;
+        }
+        .tab-btn.active-green {
+            background-color: #22c55e; /* bg-green-500 */
+            color: white;
+            border-color: #22c55e;
+        }
+        .tab-btn.active-purple {
+            background-color: #8b5cf6; /* bg-violet-500 */
+            color: white;
+            border-color: #8b5cf6;
+        }
+        .tab-btn.active-orange {
+            background-color: #f97316; /* bg-orange-500 */
+            color: white;
+            border-color: #f97316;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .prose th, .prose td {
+            border: 1px solid #e5e7eb;
+            padding: 8px 12px;
+        }
+        .prose th {
+            background-color: #f3f4f6;
+        }
+        .question-correct {
+            background-color: #dcfce7; /* green-100 */
+        }
+        .question-incorrect {
+            background-color: #fee2e2; /* red-100 */
+        }
+        .correct-answer-highlight {
+            border: 2px solid #22c55e; /* green-500 */
+            border-radius: 0.25rem;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        <header class="text-center mb-6">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-700">Panduan Lengkap Adab & Akhlak</h1>
+            <p class="text-lg text-gray-500">Bahan Rujukan Peperiksaan UPKK</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex flex-wrap justify-center gap-2 mb-6">
+            <button class="tab-btn px-4 py-2 font-semibold border-b-4 border-transparent transition-all duration-300 rounded-t-lg" data-tab="pengenalan" data-color="blue" onclick="showTab('pengenalan')">
+                Pengenalan Asas
+            </button>
+            <button class="tab-btn px-4 py-2 font-semibold border-b-4 border-transparent transition-all duration-300 rounded-t-lg" data-tab="adab" data-color="green" onclick="showTab('adab')">
+                Adab Seharian
+            </button>
+            <button class="tab-btn px-4 py-2 font-semibold border-b-4 border-transparent transition-all duration-300 rounded-t-lg" data-tab="sifat" data-color="purple" onclick="showTab('sifat')">
+                Sifat Mahmudah & Mazmumah
+            </button>
+            <button class="tab-btn px-4 py-2 font-semibold border-b-4 border-transparent transition-all duration-300 rounded-t-lg" data-tab="kuiz" data-color="orange" onclick="showTab('kuiz')">
+                Kuiz Interaktif
+            </button>
+        </nav>
+
+        <main class="bg-white p-6 md:p-8 rounded-lg shadow-lg prose max-w-none">
+            <!-- Content for Pengenalan Asas -->
+            <div id="pengenalan-content" class="tab-content">
+                <h2 class="text-2xl font-bold text-blue-600 border-b-2 border-blue-200 pb-2 mb-4">BAHAGIAN 1: PENGENALAN ASAS AKHLAK</h2>
+                <p>Wahai anakku yang bijak, sebelum kita pergi lebih jauh, mari kita fahami dahulu apakah itu Adab dan Akhlak.</p>
+                <h3 class="text-xl font-semibold mt-4">Maksud Adab dan Akhlak</h3>
+                <p><strong>Akhlak:</strong> Ia adalah sifat yang ada di dalam hati dan jiwa kita. Ia adalah sumber kepada semua perbuatan kita. Ibarat akar pada sebatang pokok, ia tidak nampak tetapi sangat penting.</p>
+                <p><strong>Adab:</strong> Ia adalah perbuatan baik yang terzahir atau nampak pada tingkah laku kita seharian. Ia adalah buah atau bunga yang cantik daripada pokok yang berakar umbi baik tadi.</p>
+                <p class="bg-blue-50 border border-blue-200 p-3 rounded-md">Ringkasnya, <strong>akhlak</strong> itu di dalam, <strong>adab</strong> itu di luar. Jika akhlak kita baik, maka adab (perbuatan) kita juga akan menjadi baik.</p>
+                
+                <h3 class="text-xl font-semibold mt-6">Perbezaan Akhlak Mahmudah dan Akhlak Mazmumah</h3>
+                <p>Akhlak terbahagi kepada dua, iaitu yang terpuji (Mahmudah) dan yang tercela (Mazmumah). Mari kita lihat perbezaannya dalam jadual di bawah:</p>
+                <div class="overflow-x-auto mt-4">
+                    <table>
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-4 py-2 text-left font-bold text-gray-600">Ciri-Ciri</th>
+                                <th class="px-4 py-2 text-left font-bold text-green-600">Akhlak Mahmudah (Sifat Terpuji)</th>
+                                <th class="px-4 py-2 text-left font-bold text-red-600">Akhlak Mazmumah (Sifat Tercela)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">Maksud</td>
+                                <td>Sifat-sifat baik dan mulia yang disukai oleh Allah SWT dan Rasulullah SAW.</td>
+                                <td>Sifat-sifat buruk dan keji yang dibenci oleh Allah SWT dan Rasulullah SAW.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Contoh Sifat</td>
+                                <td>Sabar, Syukur, Ikhlas, Amanah, Benar, Merendah diri, Pemurah.</td>
+                                <td>Sombong, Dengki, Bakhil, Pemarah, Mengumpat, Berdusta, Khianat.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Kesan pada Diri</td>
+                                <td>Hati menjadi tenang, jiwa tenteram, sentiasa gembira.</td>
+                                <td>Hati sentiasa resah, gelisah, jiwa tidak tenteram, mudah marah.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Kesan pada Masyarakat</td>
+                                <td>Disayangi dan dihormati oleh ibu bapa, guru, rakan dan jiran.</td>
+                                <td>Dibenci dan dijauhi oleh orang sekeliling, tidak mempunyai kawan yang ikhlas.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Ganjaran di Akhirat</td>
+                                <td>Mendapat pahala dan ganjaran syurga daripada Allah SWT.</td>
+                                <td>Mendapat dosa dan balasan azab daripada Allah SWT.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Content for Adab Seharian -->
+            <div id="adab-content" class="tab-content space-y-8">
+                <h2 class="text-2xl font-bold text-green-600 border-b-2 border-green-200 pb-2 mb-4">BAHAGIAN 2: ADAB DALAM KEHIDUPAN SEHARIAN</h2>
+                <p>Sekarang, mari kita pelajari adab-adab penting yang perlu kita amalkan setiap hari.</p>
+                
+                <!-- Adab kepada Allah -->
+                <div class="p-4 border-l-4 border-green-500 bg-green-50 rounded-r-lg">
+                    <h3 class="text-xl font-semibold">1. Adab terhadap Allah SWT</h3>
+                    <p class="font-semibold mt-2">Senarai Adab yang Perlu Dilakukan:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li>Sentiasa bersyukur atas segala nikmat (nikmat nafas, kesihatan, makanan).</li>
+                        <li>Melaksanakan perintah-Nya seperti solat lima waktu tepat pada masanya.</li>
+                        <li>Sentiasa berdoa memohon pertolongan dan keampunan hanya kepada-Nya.</li>
+                        <li>Redha dan sabar dengan setiap takdir dan ujian daripada Allah.</li>
+                        <li>Berzikir mengingati Allah pada setiap masa (Subhanallah, Alhamdulillah, Allahu Akbar).</li>
+                    </ul>
+                    <p class="font-semibold mt-2">Perkara yang Perlu Dielakkan:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li>Menyekutukan Allah (syirik).</li>
+                        <li>Mengeluh atau menyalahkan takdir apabila ditimpa musibah.</li>
+                        <li>Lalai atau sengaja meninggalkan solat.</li>
+                        <li>Berputus asa daripada rahmat Allah.</li>
+                    </ul>
+                    <p class="mt-2"><strong>Hikmah/Faedah Mengamalkannya:</strong> Kita akan merasa lebih dekat dengan Allah, hati menjadi tenang, hidup diberkati, dan doa mudah dimakbulkan.</p>
+                    <blockquote class="mt-2 border-l-4 border-green-300 pl-4 italic"><strong>Dalil Ringkas:</strong> Firman Allah SWT dalam Surah Ibrahim, ayat 7: لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ Maksudnya: "Sesungguhnya jika kamu bersyukur, pasti Aku akan menambah (nikmat) kepadamu."</blockquote>
+                </div>
+
+                <!-- Adab kepada Rasulullah -->
+                <div class="p-4 border-l-4 border-green-500 bg-green-50 rounded-r-lg">
+                    <h3 class="text-xl font-semibold">2. Adab terhadap Rasulullah SAW</h3>
+                     <p class="font-semibold mt-2">Senarai Adab yang Perlu Dilakukan:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li>Banyak berselawat ke atas Baginda, terutamanya pada hari Jumaat.</li>
+                        <li>Mengasihi dan mencontohi sunnah (cara hidup) Baginda, seperti cara makan, tidur, dan berpakaian.</li>
+                        <li>Mempelajari dan menghayati kisah hidup (sirah) Baginda.</li>
+                        <li>Menyayangi ahli keluarga dan para sahabat Baginda.</li>
+                    </ul>
+                    <p class="font-semibold mt-2">Perkara yang Perlu Dielakkan:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li>Mempertikaikan atau merendah-rendahkan sunnah Baginda.</li>
+                        <li>Menyebut nama Baginda sahaja tanpa berselawat (contohnya: "Muhammad" sahaja). Sebutlah "Nabi Muhammad SAW".</li>
+                        <li>Berlebih-lebihan dalam memuji Baginda sehingga melampaui batas.</li>
+                    </ul>
+                    <p class="mt-2"><strong>Hikmah/Faedah Mengamalkannya:</strong> Kita akan mendapat syafaat (pertolongan) Rasulullah SAW di akhirat kelak, hidup lebih teratur mengikut panduan Baginda, dan dicintai oleh Allah.</p>
+                    <blockquote class="mt-2 border-l-4 border-green-300 pl-4 italic"><strong>Dalil Ringkas:</strong> Firman Allah SWT dalam Surah Al-Ahzab, ayat 56: إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ ۚ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا Maksudnya: "Sesungguhnya Allah dan malaikat-malaikat-Nya berselawat untuk Nabi. Wahai orang-orang yang beriman, berselawatlah kamu untuk Nabi dan ucapkanlah salam penghormatan kepadanya."</blockquote>
+                </div>
+
+                 <!-- Repeat for other "Adab" sections -->
+                <div class="p-4 border-l-4 border-green-500 bg-green-50 rounded-r-lg">
+                    <h3 class="text-xl font-semibold">3. Adab terhadap Ibu Bapa</h3>
+                    <p class="font-semibold mt-2">Senarai Adab yang Perlu Dilakukan:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                       <li>Bercakap dengan lemah lembut dan sopan.</li>
+                       <li>Mentaati perintah mereka selagi tidak bertentangan dengan syariat.</li>
+                       <li>Membantu kerja-kerja rumah untuk meringankan beban mereka.</li>
+                       <li>Mendoakan kebaikan dan keampunan untuk mereka setiap kali selepas solat.</li>
+                       <li>Menjaga nama baik mereka di mana sahaja kita berada.</li>
+                    </ul>
+                    <p class="font-semibold mt-2">Perkara yang Perlu Dielakkan:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                       <li>Melawan atau meninggikan suara kepada mereka.</li>
+                       <li>Menunjukkan muka masam apabila disuruh melakukan sesuatu.</li>
+                       <li>Mengucapkan perkataan 'ah' atau 'uh' yang menunjukkan rasa tidak suka.</li>
+                       <li>Memburuk-burukkan mereka kepada orang lain.</li>
+                    </ul>
+                    <p class="mt-2"><strong>Hikmah/Faedah Mengamalkannya:</strong> Hidup akan sentiasa diberkati kerana redha Allah terletak pada redha ibu bapa. Kita akan mudah berjaya dalam pelajaran dan kehidupan.</p>
+                    <blockquote class="mt-2 border-l-4 border-green-300 pl-4 italic"><strong>Dalil Ringkas:</strong> Firman Allah SWT dalam Surah Al-Isra', ayat 23: فَلَا تَقُل لَّهُمَا أُفٍّ وَلَا تَنْهَرْهُمَا وَقُل لَّهُمَا قَوْلًا كَرِيمًا Maksudnya: "...maka janganlah engkau berkata kepada mereka (sebarang perkataan kasar) sekalipun perkataan 'ah', dan janganlah engkau menengking mereka, tetapi ucapkanlah kepada mereka perkataan yang mulia."</blockquote>
+                </div>
+
+                <div class="p-4 border-l-4 border-green-500 bg-green-50 rounded-r-lg">
+                  <h3 class="text-xl font-semibold">4. Adab terhadap Guru</h3>
+                   <p class="font-semibold mt-2">Senarai Adab yang Perlu Dilakukan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Memberi salam apabila bertemu guru.</li>
+                      <li>Memberi tumpuan sepenuhnya ketika guru sedang mengajar.</li>
+                      <li>Bercakap dengan sopan dan merendahkan suara.</li>
+                      <li>Menyiapkan tugasan atau kerja sekolah yang diberikan.</li>
+                      <li>Mendoakan kesejahteraan guru-guru kita.</li>
+                   </ul>
+                   <p class="font-semibold mt-2">Perkara yang Perlu Dielakkan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Bermain-main atau bersembang ketika guru mengajar.</li>
+                      <li>Menyampuk atau memotong percakapan guru.</li>
+                      <li>Bermasam muka atau melawan kata guru.</li>
+                      <li>Menceritakan keburukan guru kepada orang lain.</li>
+                   </ul>
+                   <p class="mt-2"><strong>Hikmah/Faedah Mengamalkannya:</strong> Ilmu yang dipelajari akan menjadi lebih berkat dan mudah difahami. Kita akan dihormati dan disayangi oleh guru.</p>
+                   <blockquote class="mt-2 border-l-4 border-green-300 pl-4 italic"><strong>Dalil Ringkas:</strong> Sebuah pepatah Arab menyebut: "Keberkatan ilmu itu terletak pada ketaatan kepada guru."</blockquote>
+                </div>
+                
+                <div class="p-4 border-l-4 border-green-500 bg-green-50 rounded-r-lg">
+                  <h3 class="text-xl font-semibold">5. Adab terhadap Jiran</h3>
+                   <p class="font-semibold mt-2">Senarai Adab yang Perlu Dilakukan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Bertegur sapa dan senyum apabila bertemu.</li>
+                      <li>Membantu mereka jika mereka memerlukan pertolongan.</li>
+                      <li>Memberi sedikit makanan yang kita masak.</li>
+                      <li>Menziarahi mereka jika mereka sakit atau ditimpa musibah.</li>
+                      <li>Menjaga harta benda mereka dan tidak menceroboh.</li>
+                   </ul>
+                   <p class="font-semibold mt-2">Perkara yang Perlu Dielakkan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Membuat bising sehingga mengganggu ketenteraman mereka.</li>
+                      <li>Membuang sampah di kawasan rumah mereka.</li>
+                      <li>Mengintai atau mencari-cari kesalahan jiran.</li>
+                      <li>Menyakiti hati mereka dengan perkataan atau perbuatan.</li>
+                   </ul>
+                   <p class="mt-2"><strong>Hikmah/Faedah Mengamalkannya:</strong> Mewujudkan suasana hidup yang harmoni dan selamat. Kita akan mendapat pertolongan apabila kita pula berada dalam kesusahan.</p>
+                   <blockquote class="mt-2 border-l-4 border-green-300 pl-4 italic"><strong>Dalil Ringkas:</strong> Sabda Rasulullah SAW: "Demi Allah, tidak beriman seseorang itu. Baginda ditanya: Siapakah wahai Rasulullah? Baginda menjawab: Seseorang yang jirannya tidak merasa aman daripada kejahatannya." (Hadis Riwayat al-Bukhari)</blockquote>
+                </div>
+                
+                <div class="p-4 border-l-4 border-green-500 bg-green-50 rounded-r-lg">
+                  <h3 class="text-xl font-semibold">6. Adab terhadap Rakan Sebaya</h3>
+                   <p class="font-semibold mt-2">Senarai Adab yang Perlu Dilakukan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Bercakap dengan bahasa yang baik dan sopan.</li>
+                      <li>Saling menasihati ke arah kebaikan.</li>
+                      <li>Membantu rakan yang lemah dalam pelajaran.</li>
+                      <li>Menjaga rahsia rakan kita.</li>
+                      <li>Berkongsi makanan atau alat tulis.</li>
+                   </ul>
+                   <p class="font-semibold mt-2">Perkara yang Perlu Dielakkan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Mengejek nama ibu bapa atau kekurangan fizikal rakan.</li>
+                      <li>Bergaduh, bertumbuk atau menggunakan kekerasan.</li>
+                      <li>Menipu atau mengambil barang rakan tanpa izin.</li>
+                      <li>Memulaukan atau tidak mahu berkawan dengan seseorang tanpa sebab.</li>
+                   </ul>
+                   <p class="mt-2"><strong>Hikmah/Faedah Mengamalkannya:</strong> Mempunyai ramai kawan yang baik, hidup lebih gembira dan disayangi rakan-rakan.</p>
+                   <blockquote class="mt-2 border-l-4 border-green-300 pl-4 italic"><strong>Dalil Ringkas:</strong> Sabda Rasulullah SAW: "Orang mukmin itu adalah cermin bagi mukmin yang lain." (Hadis Riwayat Abu Daud) Maksudnya, kita saling menasihati dan memperbaiki diri sesama rakan.</blockquote>
+                </div>
+                
+                <div class="p-4 border-l-4 border-green-500 bg-green-50 rounded-r-lg">
+                  <h3 class="text-xl font-semibold">7. Adab di Masjid</h3>
+                   <p class="font-semibold mt-2">Senarai Adab yang Perlu Dilakukan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Memakai pakaian yang bersih, kemas dan menutup aurat.</li>
+                      <li>Masuk ke dalam masjid dengan kaki kanan dan membaca doa.</li>
+                      <li>Melakukan solat sunat Tahiyatul Masjid sebanyak dua rakaat.</li>
+                      <li>Duduk dengan tenang, berzikir, membaca Al-Quran atau mendengar ceramah.</li>
+                      <li>Keluar dari masjid dengan kaki kiri dan membaca doa.</li>
+                   </ul>
+                   <p class="font-semibold mt-2">Perkara yang Perlu Dielakkan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Berlari-lari atau membuat bising di dalam masjid.</li>
+                      <li>Bersembang tentang perkara dunia yang tidak berfaedah.</li>
+                      <li>Mengotorkan kawasan masjid.</li>
+                      <li>Melangkah bahu orang yang sedang duduk.</li>
+                   </ul>
+                   <p class="mt-2"><strong>Hikmah/Faedah Mengamalkannya:</strong> Mendapat pahala dan ketenangan jiwa. Masjid akan sentiasa dihormati sebagai rumah Allah dan tempat beribadah.</p>
+                   <blockquote class="mt-2 border-l-4 border-green-300 pl-4 italic"><strong>Dalil Ringkas:</strong> Doa masuk masjid: "Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu." Doa keluar masjid: "Ya Allah, aku memohon kepada-Mu kurniaan-Mu."</blockquote>
+                </div>
+                
+                <div class="p-4 border-l-4 border-green-500 bg-green-50 rounded-r-lg">
+                  <h3 class="text-xl font-semibold">8. Adab Menuntut Ilmu</h3>
+                   <p class="font-semibold mt-2">Senarai Adab yang Perlu Dilakukan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Niat belajar kerana Allah SWT.</li>
+                      <li>Berdoa sebelum dan selepas belajar.</li>
+                      <li>Memberi sepenuh perhatian kepada guru yang mengajar.</li>
+                      <li>Bertanya dengan sopan jika tidak faham.</li>
+                      <li>Mengulang kaji pelajaran dan tidak mudah berputus asa.</li>
+                   </ul>
+                   <p class="font-semibold mt-2">Perkara yang Perlu Dielakkan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Niat belajar untuk menunjuk-nunjuk atau berlagak pandai.</li>
+                      <li>Malas berusaha dan suka meniru kerja rakan.</li>
+                      <li>Merasa sombong dengan ilmu yang dimiliki.</li>
+                      <li>Tidak menghormati guru.</li>
+                   </ul>
+                   <p class="mt-2"><strong>Hikmah/Faedah Mengamalkannya:</strong> Ilmu yang dipelajari menjadi berkat, mudah diingati, dan bermanfaat untuk diri serta orang lain.</p>
+                   <blockquote class="mt-2 border-l-4 border-green-300 pl-4 italic"><strong>Dalil Ringkas:</strong> Sabda Rasulullah SAW: "Sesiapa yang menempuh satu jalan untuk menuntut ilmu, maka Allah akan mempermudahkan baginya jalan ke syurga." (Hadis Riwayat Muslim)</blockquote>
+                </div>
+                
+                <div class="p-4 border-l-4 border-green-500 bg-green-50 rounded-r-lg">
+                  <h3 class="text-xl font-semibold">9. Adab Menziarahi Orang Sakit</h3>
+                   <p class="font-semibold mt-2">Senarai Adab yang Perlu Dilakukan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Memilih masa yang sesuai untuk menziarah.</li>
+                      <li>Mendoakan kesembuhan untuk pesakit.</li>
+                      <li>Memberi kata-kata semangat dan sabar kepadanya.</li>
+                      <li>Membawa buah tangan (jika mampu) seperti buah-buahan.</li>
+                      <li>Tidak menziarah terlalu lama kerana pesakit perlu berehat.</li>
+                   </ul>
+                   <p class="font-semibold mt-2">Perkara yang Perlu Dielakkan:</p>
+                   <ul class="list-disc list-inside ml-4 space-y-1">
+                      <li>Membuat bising atau bercerita perkara yang menyedihkan.</li>
+                      <li>Menanya terlalu banyak soalan tentang penyakitnya.</li>
+                      <li>Makan dan minum hidangan untuk pesakit tanpa izin.</li>
+                      <li>Menunjukkan riak muka jijik atau takut.</li>
+                   </ul>
+                   <p class="mt-2"><strong>Hikmah/Faedah Mengamalkannya:</strong> Mengeratkan silaturahim dan menggembirakan hati pesakit. Kita akan didoakan oleh 70,000 malaikat.</p>
+                   <blockquote class="mt-2 border-l-4 border-green-300 pl-4 italic"><strong>Dalil Ringkas:</strong> Sabda Rasulullah SAW: "Tidak ada seorang muslim yang menziarahi seorang muslim yang sakit pada waktu pagi, melainkan 70,000 malaikat akan mendoakannya sehinggalah ke waktu petang." (Hadis Riwayat at-Tirmizi)</blockquote>
+                </div>
+            </div>
+            
+            <!-- Content for Sifat Mahmudah & Mazmumah -->
+            <div id="sifat-content" class="tab-content">
+                <h2 class="text-2xl font-bold text-violet-600 border-b-2 border-violet-200 pb-2 mb-4">BAHAGIAN 3: MENGENALI SIFAT MAHMUDAH DAN MAZMUMAH</h2>
+                <p>Mari kita kenali dengan lebih dekat beberapa sifat terpuji yang perlu kita hiasi diri, dan sifat tercela yang wajib kita jauhi.</p>
+
+                <div class="mt-6">
+                    <h3 class="text-xl font-bold text-green-700">Sifat Mahmudah (Sifat Terpuji)</h3>
+                    <div class="space-y-4 mt-4">
+                        <details class="p-4 bg-green-50 rounded-lg cursor-pointer">
+                            <summary class="font-semibold">SABAR</summary>
+                            <div class="mt-2">
+                                <p><strong>Maksud:</strong> Tahan diri ketika menghadapi kesusahan, musibah, atau ketika melakukan ketaatan kepada Allah.</p>
+                                <p><strong>Contoh Perbuatan:</strong> Tidak marah apabila diejek kawan; tenang ketika menunggu giliran; tekun menyiapkan kerja sekolah yang susah.</p>
+                                <p><strong>Akibat Mengamalkannya:</strong> Disayangi Allah, mendapat pahala yang besar, jiwa menjadi kuat dan tidak mudah mengeluh.</p>
+                            </div>
+                        </details>
+                        <details class="p-4 bg-green-50 rounded-lg cursor-pointer">
+                            <summary class="font-semibold">SYUKUR</summary>
+                            <div class="mt-2">
+                                <p><strong>Maksud:</strong> Berterima kasih kepada Allah atas segala nikmat yang diberi dengan menggunakan nikmat itu ke jalan kebaikan.</p>
+                                <p><strong>Contoh Perbuatan:</strong> Mengucap "Alhamdulillah" apabila mendapat rezeki; menggunakan mata untuk membaca Al-Quran; menggunakan tangan untuk menolong orang.</p>
+                                <p><strong>Akibat Mengamalkannya:</strong> Allah akan menambah nikmat-Nya, hati sentiasa merasa cukup dan gembira, hidup diberkati.</p>
+                            </div>
+                        </details>
+                        <details class="p-4 bg-green-50 rounded-lg cursor-pointer">
+                            <summary class="font-semibold">AMANAH</summary>
+                             <div class="mt-2">
+                                <p><strong>Maksud:</strong> Jujur dan bertanggungjawab dalam melaksanakan setiap tugas atau kepercayaan yang diberikan.</p>
+                                <p><strong>Contoh Perbuatan:</strong> Memulangkan baki wang yang diberi ibu; menjaga barang yang dipinjam daripada kawan dengan baik; tidak meniru dalam peperiksaan.</p>
+                                <p><strong>Akibat Mengamalkannya:</strong> Dipercayai dan disenangi oleh orang lain, mendapat keberkatan dalam hidup, menjadi insan yang bertanggungjawab.</p>
+                            </div>
+                        </details>
+                        <details class="p-4 bg-green-50 rounded-lg cursor-pointer">
+                            <summary class="font-semibold">IKHLAS</summary>
+                             <div class="mt-2">
+                                <p><strong>Maksud:</strong> Melakukan sesuatu amalan kebaikan semata-mata kerana Allah SWT, bukan untuk mengharapkan pujian manusia.</p>
+                                <p><strong>Contoh Perbuatan:</strong> Bersedekah tanpa memberitahu orang lain; menolong guru tanpa mengharapkan upah; solat dengan khusyuk kerana Allah.</p>
+                                <p><strong>Akibat Mengamalkannya:</strong> Amalan diterima oleh Allah, mendapat ganjaran pahala yang murni, hati menjadi bersih daripada sifat riak (menunjuk-nunjuk).</p>
+                            </div>
+                        </details>
+                        <details class="p-4 bg-green-50 rounded-lg cursor-pointer">
+                            <summary class="font-semibold">BENAR (SIDDIQ)</summary>
+                             <div class="mt-2">
+                                <p><strong>Maksud:</strong> Bercakap benar dan jujur dalam setiap percakapan dan perbuatan.</p>
+                                <p><strong>Contoh Perbuatan:</strong> Mengakui kesalahan jika berbuat silap; tidak berbohong kepada ibu bapa atau guru; menyampaikan berita yang betul sahaja.</p>
+                                <p><strong>Akibat Mengamalkannya:</strong> Dipercayai oleh semua orang, menenangkan hati, membawa kepada kebaikan dan jalan ke syurga.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold text-red-700">Sifat Mazmumah (Sifat Tercela)</h3>
+                    <div class="space-y-4 mt-4">
+                        <details class="p-4 bg-red-50 rounded-lg cursor-pointer">
+                            <summary class="font-semibold">SOMBONG (TAKABBUR)</summary>
+                            <div class="mt-2">
+                                <p><strong>Maksud:</strong> Merasakan diri sendiri lebih hebat, mulia, atau pandai daripada orang lain, dan memandang rendah orang lain.</p>
+                                <p><strong>Contoh Perbuatan:</strong> Tidak mahu berkawan dengan orang miskin; berlagak pandai apabila dapat markah tinggi; menolak nasihat yang baik.</p>
+                                <p><strong>Akibat Buruknya:</strong> Dibenci oleh Allah dan manusia, tidak akan masuk syurga, dijauhi oleh kawan-kawan.</p>
+                            </div>
+                        </details>
+                         <details class="p-4 bg-red-50 rounded-lg cursor-pointer">
+                            <summary class="font-semibold">HASAD DENGKI</summary>
+                            <div class="mt-2">
+                                <p><strong>Maksud:</strong> Perasaan benci dan tidak suka melihat orang lain mendapat nikmat atau kelebihan, dan berharap nikmat itu hilang daripadanya.</p>
+                                <p><strong>Contoh Perbuatan:</strong> Sakit hati apabila kawan mendapat hadiah; cuba memburukkan nama kawan yang lebih pandai; tidak gembira dengan kejayaan orang lain.</p>
+                                <p><strong>Akibat Buruknya:</strong> Memakan pahala kebaikan seperti api memakan kayu; hati sentiasa resah dan tidak tenang; merosakkan persahabatan.</p>
+                            </div>
+                        </details>
+                        <details class="p-4 bg-red-50 rounded-lg cursor-pointer">
+                            <summary class="font-semibold">KHIANAT</summary>
+                            <div class="mt-2">
+                                <p><strong>Maksud:</strong> Melanggar atau tidak menunaikan amanah (kepercayaan) yang telah diberikan. Ia adalah lawan kepada sifat Amanah.</p>
+                                <p><strong>Contoh Perbuatan:</strong> Membocorkan rahsia kawan; menggunakan wang tabung kelas untuk diri sendiri; merosakkan barang yang dipinjam.</p>
+                                <p><strong>Akibat Buruknya:</strong> Hilang kepercayaan orang lain, dibenci Allah, dianggap sebagai salah satu sifat orang munafik.</p>
+                            </div>
+                        </details>
+                        <details class="p-4 bg-red-50 rounded-lg cursor-pointer">
+                            <summary class="font-semibold">BAKHIL (KEDEKUT)</summary>
+                            <div class="mt-2">
+                                <p><strong>Maksud:</strong> Terlalu sayangkan harta dan enggan membelanjakannya ke jalan kebaikan, seperti bersedekah atau menolong orang.</p>
+                                <p><strong>Contoh Perbuatan:</strong> Tidak mahu berkongsi makanan dengan kawan yang lapar; sayang untuk menderma walaupun sedikit; sentiasa berkira-kira untuk menolong orang.</p>
+                                <p><strong>Akibat Buruknya:</strong> Jauh daripada rahmat Allah, dibenci oleh manusia, hartanya tidak berkat.</p>
+                            </div>
+                        </details>
+                        <details class="p-4 bg-red-50 rounded-lg cursor-pointer">
+                            <summary class="font-semibold">MENGUMPAT (GHIBAH)</summary>
+                            <div class="mt-2">
+                                <p><strong>Maksud:</strong> Menceritakan keburukan atau aib seseorang di belakangnya, walaupun perkara itu benar.</p>
+                                <p><strong>Contoh Perbuatan:</strong> Bercerita kepada kawan lain tentang kesilapan seorang kawan; menyebarkan kelemahan orang lain.</p>
+                                <p><strong>Akibat Buruknya:</strong> Mendapat dosa besar, diibaratkan seperti memakan daging saudaranya sendiri yang telah mati, merosakkan hubungan silaturahim.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                
+                <div class="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-400">
+                    <h3 class="text-lg font-semibold">Penutup Kata dari Guru</h3>
+                    <p class="mt-2 italic">Anakanda yang disayangi,</p>
+                    <p class="mt-2 italic">Ingatlah, akhlak yang mulia itu ibarat perhiasan diri yang paling cantik. Orang tidak akan pandang pada rupa paras atau kekayaan semata-mata, tetapi mereka akan sentiasa mengingati budi bahasa dan akhlak kita yang baik.</p>
+                    <p class="mt-2 italic">Jadikanlah nota ini sebagai panduan. Belajarlah bersungguh-sungguh untuk peperiksaan UPKK, dan pada masa yang sama, berusahalah untuk menjadi seorang anak, seorang murid, dan seorang hamba Allah yang berakhlak mulia.</p>
+                    <p class="mt-2 italic">Guru doakan semoga anakanda berjaya dengan cemerlang dalam peperiksaan dan dalam seluruh kehidupan. Aamiin Ya Rabbal 'Alamin.</p>
+                </div>
+            </div>
+            
+            <!-- Content for Kuiz Interaktif -->
+            <div id="kuiz-content" class="tab-content">
+                <h2 class="text-2xl font-bold text-orange-600 border-b-2 border-orange-200 pb-2 mb-4">Kuiz Interaktif Adab & Akhlak</h2>
+                <div id="quiz-container"></div>
+                <div id="quiz-controls" class="mt-6 text-center">
+                    <button id="submit-btn" class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition-all">Hantar Jawapan</button>
+                </div>
+                <div id="result-container" class="mt-6 text-center" style="display: none;">
+                    <h3 class="text-2xl font-bold">Keputusan Kuiz</h3>
+                    <p id="score-text" class="text-4xl font-bold my-4 text-green-600"></p>
+                    <p id="feedback-text" class="text-lg mb-4"></p>
+                    <div class="flex justify-center gap-4">
+                        <button id="review-btn" class="px-6 py-3 bg-yellow-500 text-white font-bold rounded-lg shadow-md hover:bg-yellow-600 transition-all">Semak Jawapan</button>
+                        <button id="retry-btn" class="px-6 py-3 bg-gray-600 text-white font-bold rounded-lg shadow-md hover:bg-gray-700 transition-all">Cuba Lagi</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // --- DATA KUiz ---
+        const quizQuestions = [
+            { question: "Apakah yang dimaksudkan dengan Akhlak?", options: ["Sifat luaran yang nampak", "Sifat dalaman yang ada di dalam hati dan jiwa", "Perbuatan menunjuk-nunjuk", "Pakaian yang dipakai"], answer: "Sifat dalaman yang ada di dalam hati dan jiwa" },
+            { question: "Manakah antara berikut adalah contoh Akhlak Mahmudah?", options: ["Sombong", "Dengki", "Sabar", "Bakhil"], answer: "Sabar" },
+            { question: "Sifat yang dibenci oleh Allah SWT dan Rasulullah SAW dikenali sebagai...", options: ["Akhlak Mahmudah", "Akhlak Mazmumah", "Adab", "Sunnah"], answer: "Akhlak Mazmumah" },
+            { question: "Apakah kesan mengamalkan Akhlak Mahmudah pada diri?", options: ["Hati sentiasa resah", "Jiwa tidak tenteram", "Hati menjadi tenang dan gembira", "Dibenci oleh kawan-kawan"], answer: "Hati menjadi tenang dan gembira" },
+            { question: "Berikut adalah adab terhadap Allah SWT, KECUALI...", options: ["Sentiasa bersyukur", "Solat lima waktu", "Mengeluh apabila ditimpa musibah", "Berdoa kepada-Nya"], answer: "Mengeluh apabila ditimpa musibah" },
+            { question: "Apakah maksud لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ?", options: ["Jika kamu sabar, Aku akan bantu", "Jika kamu solat, Aku akan terima", "Jika kamu bersyukur, pasti Aku akan tambah nikmat", "Jika kamu berdoa, pasti Aku makbulkan"], answer: "Jika kamu bersyukur, pasti Aku akan tambah nikmat" },
+            { question: "Bagaimanakah cara kita beradab dengan Rasulullah SAW?", options: ["Menyebut nama Baginda sahaja", "Banyak berselawat ke atas Baginda", "Merendahkan sunnah Baginda", "Memuji Baginda secara melampau"], answer: "Banyak berselawat ke atas Baginda" },
+            { question: "Apakah balasan bagi orang yang sentiasa berselawat?", options: ["Mendapat harta yang banyak", "Mendapat syafaat Rasulullah SAW di akhirat", "Menjadi terkenal", "Dipuji oleh manusia"], answer: "Mendapat syafaat Rasulullah SAW di akhirat" },
+            { question: "Manakah perbuatan yang DILARANG ketika beradab dengan ibu bapa?", options: ["Bercakap lemah lembut", "Mendoakan mereka", "Meninggikan suara kepada mereka", "Membantu kerja rumah"], answer: "Meninggikan suara kepada mereka" },
+            { question: "Redha Allah terletak pada redha ________.", options: ["Guru", "Kawan", "Ibu bapa", "Jiran"], answer: "Ibu bapa" },
+            { question: "Apakah adab yang paling penting ketika guru sedang mengajar?", options: ["Bermain dengan kawan", "Memberi tumpuan sepenuhnya", "Menyampuk cakap guru", "Makan di dalam kelas"], answer: "Memberi tumpuan sepenuhnya" },
+            { question: "Apakah hikmah beradab dengan guru?", options: ["Dapat markah lebih", "Ilmu menjadi lebih berkat dan mudah difahami", "Boleh pulang awal", "Tidak perlu buat kerja sekolah"], answer: "Ilmu menjadi lebih berkat dan mudah difahami" },
+            { question: "Memberi sedikit makanan yang kita masak adalah adab terhadap...", options: ["Guru", "Jiran", "Ibu Bapa", "Rakan"], answer: "Jiran" },
+            { question: "Apakah yang perlu dielakkan dalam perhubungan dengan jiran?", options: ["Bertegur sapa", "Menziarahi jika sakit", "Membuat bising sehingga mengganggu", "Menolong jika perlu"], answer: "Membuat bising sehingga mengganggu" },
+            { question: "Orang mukmin adalah cermin bagi mukmin yang lain. Ini adalah dalil tentang adab terhadap...", options: ["Jiran", "Ibu Bapa", "Rakan Sebaya", "Guru"], answer: "Rakan Sebaya" },
+            { question: "Berikut adalah adab baik sesama rakan, KECUALI...", options: ["Saling menasihati", "Menjaga rahsia", "Mengejek nama ibu bapa rakan", "Berkongsi makanan"], answer: "Mengejek nama ibu bapa rakan" },
+            { question: "Apakah solat sunat yang dilakukan sebaik sahaja masuk ke dalam masjid?", options: ["Solat Hajat", "Solat Dhuha", "Solat Tahiyatul Masjid", "Solat Taubat"], answer: "Solat Tahiyatul Masjid" },
+            { question: "Apabila keluar dari masjid, kita disunatkan untuk melangkah dengan kaki...", options: ["Kanan", "Kiri", "Kedua-dua kaki serentak", "Tidak kisah"], answer: "Kiri" },
+            { question: "Apakah niat yang betul ketika menuntut ilmu?", options: ["Untuk menunjuk-nunjuk", "Kerana Allah SWT", "Untuk mendapat pujian", "Untuk melawan guru"], answer: "Kerana Allah SWT" },
+            { question: "Apakah hikmah menuntut ilmu dengan adab yang betul?", options: ["Allah mempermudahkan jalan ke syurga", "Menjadi kaya", "Disukai semua orang", "Boleh mengarah orang lain"], answer: "Allah mempermudahkan jalan ke syurga" },
+            { question: "Manakah antara berikut BUKAN adab menziarahi orang sakit?", options: ["Mendoakan kesembuhan", "Memberi kata-kata semangat", "Menziarah terlalu lama", "Membawa buah tangan"], answer: "Menziarah terlalu lama" },
+            { question: "Apakah ganjaran bagi orang yang menziarahi orang sakit pada waktu pagi?", options: ["Dapat pahala puasa setahun", "Didoakan oleh 70,000 malaikat", "Dihapuskan semua dosa kecil", "Dibina sebuah rumah di syurga"], answer: "Didoakan oleh 70,000 malaikat" },
+            { question: "Sifat 'Sabar' bermaksud...", options: ["Tahan diri ketika menghadapi kesusahan", "Berterima kasih kepada Allah", "Jujur dalam tugas", "Melakukan sesuatu kerana Allah"], answer: "Tahan diri ketika menghadapi kesusahan" },
+            { question: "Memulangkan baki wang kepada ibu adalah contoh sifat...", options: ["Ikhlas", "Syukur", "Amanah", "Sabar"], answer: "Amanah" },
+            { question: "Lawan bagi sifat Amanah ialah...", options: ["Sombong", "Dengki", "Bakhil", "Khianat"], answer: "Khianat" },
+            { question: "Apakah maksud sifat Sombong (Takabbur)?", options: ["Tidak suka melihat kelebihan orang lain", "Merasakan diri sendiri lebih hebat dari orang lain", "Sayang untuk memberi sedekah", "Menceritakan keburukan orang lain"], answer: "Merasakan diri sendiri lebih hebat dari orang lain" },
+            { question: "Perasaan benci melihat nikmat pada orang lain dan berharap nikmat itu hilang dipanggil...", options: ["Hasad Dengki", "Riak", "Mengumpat", "Bakhil"], answer: "Hasad Dengki" },
+            { question: "Mengumpat diibaratkan seperti...", options: ["Memakan buah yang busuk", "Minum air yang kotor", "Memakan daging saudaranya yang telah mati", "Menikam kawan dari belakang"], answer: "Memakan daging saudaranya yang telah mati" },
+            { question: "Amalan yang dilakukan bukan kerana Allah tetapi untuk pujian manusia adalah tidak...", options: ["Sabar", "Syukur", "Amanah", "Ikhlas"], answer: "Ikhlas" },
+            { question: "Orang yang bakhil atau kedekut akan...", options: ["Disayangi Allah", "Hartanya berkat", "Jauh daripada rahmat Allah dan dibenci manusia", "Mempunyai ramai kawan"], answer: "Jauh daripada rahmat Allah dan dibenci manusia" }
+        ];
+
+        let userAnswers = [];
+
+        // --- FUNGSI UTAMA ---
+        
+        function showTab(tabName) {
+            // Sembunyikan semua content
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.style.display = 'none');
+
+            // Reset semua butang tab
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active-blue', 'active-green', 'active-purple', 'active-orange');
+            });
+
+            // Tunjukkan content dan aktifkan butang yang dipilih
+            document.getElementById(tabName + '-content').style.display = 'block';
+            const activeButton = document.querySelector(`.tab-btn[data-tab='${tabName}']`);
+            const color = activeButton.getAttribute('data-color');
+            activeButton.classList.add(`active-${color}`);
+            
+            // Muatkan kuiz jika tab kuiz dipilih
+            if (tabName === 'kuiz') {
+                loadQuiz();
+            }
+        }
+        
+        function loadQuiz() {
+            const quizContainer = document.getElementById('quiz-container');
+            let quizHTML = '<div class="space-y-6">';
+            
+            // Randomize questions order
+            const shuffledQuestions = [...quizQuestions].sort(() => Math.random() - 0.5);
+
+            shuffledQuestions.forEach((q, index) => {
+                quizHTML += `
+                    <div class="p-4 border border-gray-200 rounded-lg" id="question-${index}">
+                        <p class="font-semibold">${index + 1}. ${q.question}</p>
+                        <div class="mt-2 space-y-2">
+                `;
+                // Randomize options order
+                const shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
+                shuffledOptions.forEach(option => {
+                    quizHTML += `
+                        <label class="flex items-center p-2 rounded-md hover:bg-gray-100 cursor-pointer">
+                            <input type="radio" name="question${index}" value="${option}" class="mr-3">
+                            <span>${option}</span>
+                        </label>
+                    `;
+                });
+                quizHTML += `</div></div>`;
+            });
+            quizHTML += '</div>';
+            quizContainer.innerHTML = quizHTML;
+            
+            // Reset state
+            document.getElementById('result-container').style.display = 'none';
+            document.getElementById('quiz-controls').style.display = 'block';
+            document.getElementById('submit-btn').style.display = 'inline-block';
+            userAnswers = [];
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            userAnswers = []; // Clear previous answers
+            const questions = document.querySelectorAll('#quiz-container > div > div');
+
+            questions.forEach((questionDiv, index) => {
+                const questionText = questionDiv.querySelector('p').innerText.substring(3);
+                const originalQuestion = quizQuestions.find(q => q.question === questionText);
+                
+                const selectedOption = questionDiv.querySelector(`input[name="question${index}"]:checked`);
+                const userAnswer = selectedOption ? selectedOption.value : null;
+                userAnswers.push({ question: questionText, selected: userAnswer, correct: originalQuestion.answer });
+
+                if (userAnswer === originalQuestion.answer) {
+                    score++;
+                }
+            });
+
+            const totalQuestions = questions.length;
+            const percentage = (score / totalQuestions) * 100;
+
+            document.getElementById('score-text').innerText = `${percentage.toFixed(0)} / 100`;
+            
+            let feedback = "Teruskan usaha!";
+            if (percentage >= 80) feedback = "Cemerlang! Anda sangat faham topik ini.";
+            else if (percentage >= 50) feedback = "Bagus! Teruskan mengulang kaji.";
+            else feedback = "Jangan putus asa, cuba lagi untuk lebih faham.";
+            document.getElementById('feedback-text').innerText = feedback;
+
+            document.getElementById('quiz-controls').style.display = 'none';
+            document.getElementById('result-container').style.display = 'block';
+        }
+
+        function reviewAnswers() {
+            // Show quiz again and hide results
+            document.getElementById('result-container').style.display = 'none';
+            document.getElementById('submit-btn').style.display = 'none'; // Hide submit on review
+
+            const questionElements = document.querySelectorAll('#quiz-container > div > div');
+            
+            questionElements.forEach((questionDiv, index) => {
+                 // Find the corresponding user answer
+                const questionText = questionDiv.querySelector('p').innerText.substring(3);
+                const userAnswerData = userAnswers.find(ua => ua.question === questionText);
+                
+                if (!userAnswerData) return; // Skip if somehow not found
+
+                const inputs = questionDiv.querySelectorAll('input');
+                inputs.forEach(input => {
+                    input.disabled = true; // Disable all radio buttons
+                    const label = input.parentElement;
+                    label.classList.remove('question-correct', 'question-incorrect', 'correct-answer-highlight');
+
+                    if (input.value === userAnswerData.correct) {
+                        // This is the correct answer
+                        label.classList.add('question-correct');
+                        label.querySelector('span').innerHTML += ' (Jawapan Betul)';
+                    }
+                    
+                    if (input.checked && input.value !== userAnswerData.correct) {
+                        // User selected this and it's wrong
+                        label.classList.add('question-incorrect');
+                    }
+                });
+            });
+
+             // Show the retry button after review
+            document.getElementById('quiz-controls').style.display = 'block';
+            document.getElementById('submit-btn').style.display = 'none';
+            const retryButton = document.createElement('button');
+            retryButton.id = 'retry-btn-review';
+            retryButton.className = 'px-6 py-3 bg-gray-600 text-white font-bold rounded-lg shadow-md hover:bg-gray-700 transition-all';
+            retryButton.innerText = 'Cuba Lagi';
+            retryButton.onclick = () => {
+                loadQuiz();
+                document.getElementById('quiz-controls').innerHTML = `<button id="submit-btn" class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition-all">Hantar Jawapan</button>`;
+                document.getElementById('submit-btn').onclick = submitQuiz;
+
+            };
+            
+            const controlsDiv = document.getElementById('quiz-controls');
+            controlsDiv.innerHTML = ''; // Clear previous buttons
+            controlsDiv.appendChild(retryButton);
+            
+            window.scrollTo({ top: document.getElementById('kuiz-content').offsetTop, behavior: 'smooth' });
+        }
+
+        // --- EVENT LISTENERS ---
+        document.addEventListener('DOMContentLoaded', () => {
+            showTab('pengenalan'); // Show first tab on page load
+            
+            document.getElementById('submit-btn').addEventListener('click', submitQuiz);
+            document.getElementById('retry-btn').addEventListener('click', loadQuiz);
+            document.getElementById('review-btn').addEventListener('click', reviewAnswers);
+        });
+
+    </script>
+</body>
+</html>
